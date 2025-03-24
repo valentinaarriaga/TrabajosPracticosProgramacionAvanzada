@@ -1,3 +1,89 @@
 git add.https://replit.com/@ValentinaArriag/TrabajoPractico2-1#src/main/java/Main.java
 gid add.https://replit.com/@ValentinaArriag/TrabajoPractico2-1#src/main/java/Nota.java
 gid add.https://replit.com/@ValentinaArriag/TrabajoPractico2-1#src/main/java/Alumno.java
+
+public class Main {
+  public static void main(String[] args) {
+    Nota n1 = new Nota();
+    Alumno a1 = new Alumno("Valentina", "Arriaga", 114305);
+    Nota n2 = new Nota();
+    Alumno a2 = new Alumno("Ona", "Labay", 114301);
+    Nota n3 = new Nota();
+    Alumno a3 = new Alumno("Carolina", "Sanchez", 114303);
+
+    n1.leerNota();
+    n1.sumar();
+    n1.prom();
+    System.out.println("Nota final primer alumno:");
+    a1.mostrarDatos();
+    n1.mostrarPromedio();
+
+    n2.leerNota();
+    n2.sumar();
+    n2.prom();
+    System.out.println("Nota final segundo alumno:");
+    a2.mostrarDatos();
+    n2.mostrarPromedio();
+
+    n3.sumar(8,9);
+    n3.prom(8,9);
+    System.out.println("Nota final tercer alumno:");
+    a3.mostrarDatos();
+    n3.mostrarPromedio();
+  }
+}
+
+
+public class Alumno{
+  String nombre;
+  String apellido;
+  int legajo;
+
+  public Alumno(String nombre, String apellido, int legajo){
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.legajo = legajo;
+  }
+
+  public void mostrarDatos(){
+    System.out.print("El alumno " +nombre+ " " +apellido+ ", con legajo " +legajo+ " tiene un promedio de: ");
+  }
+  
+}
+
+
+public class Nota{
+  int nota1;
+  int nota2;
+  double suma;
+  double promedio;
+
+  public void leerNota(){
+    nota1 = Integer.parseInt(System.console().readLine("Ingrese la primer nota: "));
+    nota2 = Integer.parseInt(System.console().readLine("Ingrese la segunda nota: "));
+  }
+
+  public double sumar(){
+    suma = nota1 + nota2;
+    return suma; 
+  }
+
+  public double sumar(int nota1, int nota2){
+    suma = nota1 + nota2;
+    return suma; 
+  }
+
+  public double prom (){
+    promedio = suma/2;
+    return promedio;
+  }
+
+  public double prom(int nota1, int nota2){
+    promedio = suma/2;
+    return promedio; 
+  }
+
+  public void mostrarPromedio(){
+    System.out.println(promedio);
+  }
+}
